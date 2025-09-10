@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sketch & Stitch | Custom Hoodies</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&family=Poppins:wght@400;600;700&family=Space+Grotesk:wght@500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --neon-pink: #ff3cac;
+            --neon-blue: #03a9f4;
+            --neon-green: #0fffc1;
+            --neon-yellow: #ffeb3b;
+            --dark-bg: #0a0a12;
+            --card-bg: #151521;
+            --text-light: #f5f5ff;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        
+        /* Header & Navigation */
+        header {
+            background: linear-gradient(135deg, #1a1a2a 0%, #0a0a12 100%);
+            padding: 20px 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            font-size: 28px;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .tagline {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 14px;
+            color: var(--neon-green);
+            margin-top: -5px;
+            letter-spacing: 1.5px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--neon-pink);
+        }
+        
+        .nav-icons {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-icons i {
+            font-size: 20px;
+            margin-left: 20px;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .nav-icons i:hover {
+            color: var(--neon-green);
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 90vh;
+            background: linear-gradient(rgba(10, 10, 18, 0.7), rgba(10, 10, 18, 0.9)), url('https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            padding: 0 5%;
+        }
+        
+        .hero-content {
+            max-width: 650px;
+        }
+        
+        .hero h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue), var(--neon-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, var(--neon-pink), var(--neon-blue));
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            text-decoration: none;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(255, 60, 172, 0.3);
+        }
+        
+        /* Customization Section */
+        .customization {
+            padding: 100px 5%;
+            text-align: center;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            text-align: center;
+            background: linear-gradient(45deg, var(--neon-green), var(--neon-yellow));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .customization-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+        
+        .preview-container {
+            flex: 1;
+            min-width: 300px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hoodie-preview {
+            width: 100%;
+            height: 400px;
+            background: url('https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80') no-repeat center center/contain;
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .custom-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: bold;
+            font-size: 24px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        
+        .options-container {
+            flex: 1;
+            min-width: 300px;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .option-group {
+            margin-bottom: 25px;
+            text-align: left;
+        }
+        
+        .option-group h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: var(--neon-green);
+        }
+        
+        .color-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .color-option {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .color-option:hover {
+            transform: scale(1.1);
+        }
+        
+        .size-options {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .size-option {
+            padding: 10px 15px;
+            background: #2a2a3a;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .size-option:hover, .size-option.active {
+            background: var(--neon-blue);
+        }
+        
+        .graphic-options {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .graphic-option {
+            width: 70px;
+            height: 70px;
+            border-radius: 10px;
+            background: #2a2a3a;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .graphic-option:hover {
+            transform: scale(1.05);
+        }
+        
+        .graphic-option i {
+            font-size: 24px;
+        }
+        
+        textarea {
+            width: 100%;
+            padding: 15px;
+            background: #2a2a3a;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            font-family: 'Poppins', sans-serif;
+            resize: none;
+        }
+        
+        /* Trending Designs */
+        .trending {
+            padding: 100px 5%;
+            background: linear-gradient(to bottom, var(--dark-bg), #13131e);
+        }
+        
+        .designs-container {
+            display: flex;
+            gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scrollbar-width: thin;
+        }
+        
+        .design-card {
+            min-width: 250px;
+            background: var(--card-bg);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s;
+        }
+        
+        .design-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .design-img {
+            height: 200px;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .design-info {
+            padding: 20px;
+        }
+        
+        .design-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .price {
+            color: var(--neon-yellow);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        
+        /* Reviews */
+        .reviews {
+            padding: 100px 5%;
+        }
+        
+        .reviews-container {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .review-card {
+            flex: 1;
+            min-width: 300px;
+            max-width: 400px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .reviewer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .reviewer-img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #2a2a3a;
+            margin-right: 15px;
+        }
+        
+        .stars {
+            color: var(--neon-yellow);
+            margin-top: 5px;
+        }
+        
+        /* Footer */
+        footer {
+            background: #0a0a12;
+            padding: 50px 5% 20px;
+            border-top: 1px solid #1f1f2e;
+        }
+        
+        .footer-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-col {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .footer-col h4 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--neon-green);
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: var(--neon-pink);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: #1f1f2e;
+            border-radius: 50%;
+            color: var(--text-light);
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--neon-blue);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1f1f2e;
+            font-size: 0.9rem;
+        }
+        
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            
+            nav ul li {
+                margin-left: 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .customization-container {
+                flex-direction: column;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-container">
+            <div>
+                <div class="logo">Sketch & Stitch</div>
+                <div class="tagline">Draw It. Stitch It. Love It.</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Design</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Trending</a></li>
+                    <li><a href="#">About</a></li>
+                </ul>
+            </nav>
+            <div class="nav-icons">
+                <i class="fas fa-search"></i>
+                <i class="fas fa-shopping-cart"></i>
+                <i class="fas fa-user"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Express Your Unique Style With Custom Hoodies</h1>
+            <p>Design your own hoodie with our easy-to-use customization tool. Choose from hundreds of graphics, colors, and styles to create a hoodie that's uniquely you.</p>
+            <a href="#" class="btn">Start Designing</a>
+        </div>
+    </section>
+
+    <!-- Customization Section -->
+    <section class="customization">
+        <h2 class="section-title">Design Your Hoodie</h2>
+        <div class="customization-container">
+            <div class="preview-container">
+                <h3>Your Design</h3>
+                <div class="hoodie-preview">
+                    <div class="custom-text">Your Text Here</div>
+                </div>
+                <div class="price">$49.99</div>
+                <button class="btn" style="width: 100%; margin-top: 20px;">Add to Cart</button>
+            </div>
+            
+            <div class="options-container">
+                <div class="option-group">
+                    <h3>Hoodie Color</h3>
+                    <div class="color-options">
+                        <div class="color-option" style="background-color: #1a1a2a;"></div>
+                        <div class="color-option" style="background-color: #2a2a3a;"></div>
+                        <div class="color-option" style="background-color: #ff3cac;"></div>
+                        <div class="color-option" style="background-color: #03a9f4;"></div>
+                        <div class="color-option" style="background-color: #0fffc1;"></div>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <h3>Size</h3>
+                    <div class="size-options">
+                        <div class="size-option">XS</div>
+                        <div class="size-option">S</div>
+                        <div class="size-option active">M</div>
+                        <div class="size-option">L</div>
+                        <div class="size-option">XL</div>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <h3>Graphics</h3>
+                    <div class="graphic-options">
+                        <div class="graphic-option"><i class="fas fa-rocket"></i></div>
+                        <div class="graphic-option"><i class="fas fa-gamepad"></i></div>
+                        <div class="graphic-option"><i class="fas fa-headphones"></i></div>
+                        <div class="graphic-option"><i class="fas fa-cat"></i></div>
+                        <div class="graphic-option"><i class="fas fa-fire"></i></div>
+                    </div>
+                </div>
+                
+                <div class="option-group">
+                    <h3>Custom Text</h3>
+                    <textarea placeholder="Enter your custom text here" rows="3">Your Text Here</textarea>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trending Designs -->
+    <section class="trending">
+        <h2 class="section-title">Trending Designs</h2>
+        <div class="designs-container">
+            <div class="design-card">
+                <div class="design-img" style="background-image: url('https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="design-info">
+                    <h3>Neon Dreams</h3>
+                    <p>Glow in the dark design</p>
+                    <div class="price">$54.99</div>
+                </div>
+            </div>
+            
+            <div class="design-card">
+                <div class="design-img" style="background-image: url('https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="design-info">
+                    <h3>Retro Wave</h3>
+                    <p>Vintage vibes only</p>
+                    <div class="price">$49.99</div>
+                </div>
+            </div>
+            
+            <div class="design-card">
+                <div class="design-img" style="background-image: url('https://images.unsplash.com/photo-1544966503-7cc5ac882d5e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="design-info">
+                    <h3>Cyber Punk</h3>
+                    <p>Futuristic aesthetic</p>
+                    <div class="price">$59.99</div>
+                </div>
+            </div>
+            
+            <div class="design-card">
+                <div class="design-img" style="background-image: url('https://images.unsplash.com/photo-1562157873-818bc0726f68?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');"></div>
+                <div class="design-info">
+                    <h3>Minimalist</h3>
+                    <p>Less is more</p>
+                    <div class="price">$44.99</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews">
+        <h2 class="section-title">What Our Community Says</h2>
+        <div class="reviews-container">
+            <div class="review-card">
+                <div class="reviewer">
+                    <div class="reviewer-img"></div>
+                    <div>
+                        <h4>Alex Morgan</h4>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p>"The quality is amazing! I get compliments every time I wear my custom hoodie. The design tool was so easy to use too!"</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="reviewer">
+                    <div class="reviewer-img"></div>
+                    <div>
+                        <h4>Jordan Taylor</h4>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <p>"I ordered matching hoodies for my squad and they turned out perfect! The shipping was super fast and the customer service was great."</p>
+            </div>
+            
+            <div class="review-card">
+                <div class="reviewer">
+                    <div class="reviewer-img"></div>
+                    <div>
+                        <h4>Sam Chen</h4>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <p>"The fabric is so comfortable and the print quality is top-notch. Will definitely be ordering more designs in the future!"</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Sketch & Stitch</h4>
+                <p>Draw It. Stitch It. Love It.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-tiktok"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="#">Men's Hoodies</a></li>
+                    <li><a href="#">Women's Hoodies</a></li>
+                    <li><a href="#">Unisex Hoodies</a></li>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Help</h4>
+                <ul>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-col">
+                <h4>Newsletter</h4>
+                <p>Subscribe for exclusive deals and new designs</p>
+                <form>
+                    <input type="email" placeholder="Your email" style="width: 100%; padding: 15px; margin: 10px 0; border-radius: 10px; border: none; background: #2a2a3a; color: white;">
+                    <button class="btn" style="width: 100%;">Subscribe</button>
+                </form>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 Sketch & Stitch. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple interactivity for the customization tool
+        document.addEventListener('DOMContentLoaded', function() {
+            // Color selection
+            const colorOptions = document.querySelectorAll('.color-option');
+            colorOptions.forEach(color => {
+                color.addEventListener('click', function() {
+                    document.querySelector('.hoodie-preview').style.backgroundColor = this.style.backgroundColor;
+                });
+            });
+            
+            // Size selection
+            const sizeOptions = document.querySelectorAll('.size-option');
+            sizeOptions.forEach(size => {
+                size.addEventListener('click', function() {
+                    sizeOptions.forEach(s => s.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Text customization
+            const textInput = document.querySelector('textarea');
+            const customText = document.querySelector('.custom-text');
+            
+            textInput.addEventListener('input', function() {
+                customText.textContent = this.value;
+            });
+            
+            // Graphic selection
+            const graphicOptions = document.querySelectorAll('.graphic-option');
+            graphicOptions.forEach(graphic => {
+                graphic.addEventListener('click', function() {
+                    const iconClass = this.querySelector('i').className;
+                    customText.innerHTML = `<i class="${iconClass}"></i> ${customText.textContent}`;
+                });
+            });
+            
+            // Animation on scroll
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.design-card, .review-card');
+                
+                elements.forEach(element => {
+                    const position = element.getBoundingClientRect();
+                    
+                    if(position.top < window.innerHeight - 100) {
+                        element.style.animation = 'fadeInUp 1s ease-out forwards';
+                    }
+                });
+            };
+            
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // Initial check
+        });
+    </script>
+</body>
+</html>
